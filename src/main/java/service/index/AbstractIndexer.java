@@ -1,11 +1,10 @@
 package service.index;
 
-import service.tokenizer.AbstractTokenizer;
-
-import java.util.List;
+import java.io.File;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 
 public interface AbstractIndexer {
-    ConcurrentHashMap<String, Set<String>> index(AbstractTokenizer tokenizer );
+   void indexFile(File file);
+   void indexDirectory(File directory);
+   Set<File> search(String word);
 }

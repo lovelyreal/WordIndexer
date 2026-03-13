@@ -21,6 +21,7 @@ public interface RussianTokenizerSettings {
             "на","с","со","как","а",
             "то","все","она","так","его",
             "но","да","ты","к","у","же");
+    //+(?:-[а-яА-ЯёЁ]+)?
 // Regex ищет совпадения из разряда "слово.." и "слово-слово" дефис включается
-    Pattern WORD_PATTERN = Pattern.compile("[а-яА-ЯёЁ]+(?:-[а-яА-ЯёЁ]+)?");
+    Pattern WORD_PATTERN = Pattern.compile("[а-яА-ЯёЁ]+");
 }
