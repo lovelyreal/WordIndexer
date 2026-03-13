@@ -1,4 +1,4 @@
-package tokenizer;
+package service.tokenizer;
 
 import java.io.File;
 import java.util.List;
