@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 
+
 public class FileIndexer implements AbstractIndexer {
     private final AbstractTokenizer tokenizer;
     private final ConcurrentHashMap<String, Set<File>> fileIndex = new ConcurrentHashMap<>();
@@ -28,7 +29,6 @@ public class FileIndexer implements AbstractIndexer {
                     .computeIfAbsent(token, k -> ConcurrentHashMap.newKeySet())
                     .add(file);
         }
-        System.out.println(fileIndex.toString());
     }
 
     @Override
@@ -48,7 +48,6 @@ public class FileIndexer implements AbstractIndexer {
     public Set<File> search(String word) {
         word = word.toLowerCase();
         word = FileUtilities.wordNormalizer(word);
-        System.out.println("word: " + word);
         return fileIndex.getOrDefault(word, Set.of());
     }
 }
