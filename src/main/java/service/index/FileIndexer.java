@@ -43,7 +43,6 @@ public class FileIndexer implements AbstractIndexer {
             }
         }
     }
-
     @Override
     public Set<File> search(String word) {
         word = word.toLowerCase();
