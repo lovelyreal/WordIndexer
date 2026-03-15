@@ -6,6 +6,7 @@ import java.nio.file.Files;
 
 public class FileUtilities {
     public static String fileToString(File file) {
+
         try (BufferedReader reader = Files.newBufferedReader(file.toPath(), StandardCharsets.UTF_8)) {
             StringBuilder sb = new StringBuilder();
             String line;

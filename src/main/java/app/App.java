@@ -17,16 +17,25 @@ public class App {
         System.out.println("Выберите tokenizer:");
         System.out.println("1 - simple");
         System.out.println("2 - russian");
-
-        int choice = Integer.parseInt(scanner.nextLine());
+        int choice;
+        while (true) {
+            if (scanner.hasNextInt()) {
+                choice = Integer.parseInt(scanner.nextLine());
+                break;
+            } else {
+                System.out.println("Введите корректное число!");
+                scanner.nextLine();
+            }
+        }
 
         AbstractTokenizer tokenizer;
 
         if (choice == 1) {
             tokenizer = new SimpleTextFileTokenizer();
-        } else if(choice == 2) {
+        } else if (choice == 2) {
             tokenizer = new RussianTextFileTokenizer();
         } else {
+            System.out.println("Выбран поиск по умолчанию - simple");
             tokenizer = new SimpleTextFileTokenizer();
         }
 

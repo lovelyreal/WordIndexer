@@ -1,4 +1,5 @@
 package service.watcher;
+
 import service.index.FileIndexer;
 
 import java.io.File;
@@ -34,25 +35,15 @@ public class FileWatcher implements Runnable {
             );
 
             while (true) {
-
                 WatchKey key = watchService.take();
-
                 for (WatchEvent<?> event : key.pollEvents()) {
-
                     Path changed = (Path) event.context();
-
                     File file = path.resolve(changed).toFile();
-
                     if (file.isFile()) {
-
                         executor.submit(() -> indexer.indexFile(file));
-
                     }
-
                 }
-
                 key.reset();
-
             }
 
         } catch (IOException | InterruptedException e) {

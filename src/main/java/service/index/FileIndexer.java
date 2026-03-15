@@ -32,18 +32,6 @@ public class FileIndexer implements AbstractIndexer {
     }
 
     @Override
-    public void indexDirectory(File directory) {
-        File[] files = directory.listFiles();
-        if (files == null) {
-            return;
-        }
-        for (File file : files) {
-            if (file.isFile()) {
-                indexFile(file);
-            }
-        }
-    }
-    @Override
     public Set<File> search(String word) {
         word = word.toLowerCase();
         word = FileUtilities.wordNormalizer(word);
